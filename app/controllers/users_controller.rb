@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
 
+  before_action :require_authentication, only: [:index, :show, :update, :destroy]
+
   def index
     @users = User.all
   end
 
   def show
-    @user = User.find(param[:id])
+    @user = User.find(params[:id])
   end
 
   def new
@@ -13,8 +15,15 @@ class UsersController < ApplicationController
   end
 
   def create
+    # Only admins can create users while logged in
+    require_admin_authentication if current_user
     @user = User.new(user_params)
-    redirect_to @user
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to @user
+    else
+      render 'new'
+    end
   end
 
   private
