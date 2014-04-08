@@ -6,5 +6,6 @@ RedtApp::Application.routes.draw do
   get '/logout' => 'sessions#destroy'
   post '/sessions' => 'sessions#create'
 
+  root to: 'links#index'
 
 end
