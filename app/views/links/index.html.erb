@@ -1,4 +1,4 @@
-<p>all dem linkz</p>
+<p>Links</p>
 <% @links.each do |link| %>
   <p><a href="<%= link.url %>"><%= link.title %></a> Posted by: <%= link_to "#{link.user.first_name} #{link.user.last_name}", user_path(link.user) %></p> <br>
 <% end %>
