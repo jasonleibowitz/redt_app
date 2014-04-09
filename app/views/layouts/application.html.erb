@@ -6,29 +6,25 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css" rel="stylesheet">
   <style>li{margin-bottom:0;}</style>
 </head>
 <body>
     <div class="navbar navbar-default navbar-static-top" role="navigation">
       <div class="container">
-            <ul class="nav navbar-nav > li > a {padding-top:10px !important; padding-bottom:10px !important;}
-            navbar {min-height:40px !important}"
-            <li><img src="http://www.logomaker.com/logo-images/3404ba7ff0e9cc93.gif" width="115" height="65"/></a></li>
-            </ul>
-          <ul class="nav navbar-nav navbar-left">
-        <div class="navbar-header navbar-brand">
-        <li> <%= link_to_unless_current "Home", root_path %></li>
-        </div>
+            <ul class="nav navbar-nav > li > a {padding-top:10px !important; padding-bottom:10px !important;} </ul>
+            navbar {min-height:40px !important}">
+           <li><img src="<%= asset_path 'logo.png' %>" width="120"></li>
+            <li><marquee><blink><img src="<%= asset_path 'logo.png' %>" width="120"></blink></marquee></li>
 
+            <marquee behavior="alternate">Your bouncing text goes here</marquee>
+            </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if current_user  %>
-            <p>
-              <li>Hello, <%= current_user.id %>!</li>
-              <li><%= link_to_unless_current 'Logout', logout_path %> </li>
+              <li>Hello, <%= current_user.first_name %>!</li>
               <li><%= link_to "My Links", "/users/#{current_user.id}" %> </li>
                <li><%= link_to "New Links", "/users/#{current_user.id}" %> </li>
-            </p>
+              <li><%= link_to_unless_current 'Logout', logout_path %> </li>
             <% else %>
             <li><%= link_to "Login", login_path %></li>
             <li><%= link_to "Sign up", new_user_path %></li>
