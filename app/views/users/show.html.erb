@@ -2,7 +2,7 @@
 <hr>
 
 <div class="links">
-  <% @user.links.each do |link| %>
+  <% @user.links.order(created_at: :desc).each do |link| %>
     <a href= "<%= link.url %>"><%= link.title %></a> <br> <br>
   <% end %>
 </div>
