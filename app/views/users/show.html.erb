@@ -1,5 +1,8 @@
-<p>Hello <%= @user.first_name %></p>
+<h2>Hello <%= @user.first_name %></h2>
+<hr>
 
-<% @user.links.each do |link| %>
-  <a href= "<%= link.url %>"><%= link.title %></a>
-<% end %>
+<div class="links">
+  <% @user.links.each do |link| %>
+    <a href= "<%= link.url %>"><%= link.title %></a> <br> <br>
+  <% end %>
+</div>
