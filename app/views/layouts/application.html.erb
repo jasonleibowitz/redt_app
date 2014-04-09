@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 
 <link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <style>li{margin-bottom:0;}</style>
 </head>
 <body>
@@ -14,14 +15,18 @@
       <div class="container">
             <ul class="nav navbar-nav > li > a {padding-top:10px !important; padding-bottom:10px !important;} </ul>
             navbar {min-height:40px !important}">
+<<<<<<< HEAD
            <li><img src="<%= asset_path 'logo.png' %>" width="120"></li>
             <li><marquee><blink><img src="<%= asset_path 'logo.png' %>" width="120"></blink></marquee></li>
+=======
+           <li><a href="<%= root_path %>"><img src="<%= asset_path 'logo.png' %>" width="120"></a></li>
+>>>>>>> 591543ae4b6f2734ac657d0197cd05d244219f0e
             </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if current_user  %>
               <li>Hello, <%= current_user.first_name %>!</li>
               <li><%= link_to "My Links", "/users/#{current_user.id}" %> </li>
-               <li><%= link_to "New Links", "/users/#{current_user.id}" %> </li>
+               <li><%= link_to "New Links", new_link_path %> </li>
               <li><%= link_to_unless_current 'Logout', logout_path %> </li>
             <% else %>
             <li><%= link_to "Login", login_path %></li>

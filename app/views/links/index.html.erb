@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <p>Links</p>
+=======
+<h1>all dem linkz</h1> <br>
+>>>>>>> 591543ae4b6f2734ac657d0197cd05d244219f0e
 <% @links.each do |link| %>
   <p><a href="<%= link.url %>"><%= link.title %></a> Posted by: <%= link_to "#{link.user.first_name} #{link.user.last_name}", user_path(link.user) %></p> <br>
 <% end %>

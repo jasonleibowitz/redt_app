@@ -11,3 +11,13 @@
  *= require_self
  *= require_tree .
  */
+.vote-wrap {
+  float: left;
+  margin-right: 10px;
+}
+.link {
+  height: 62px;
+  line-height: 62px;
+  vertical-align: middle;
+  margin-bottom: 15px;
+}
