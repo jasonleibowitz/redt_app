@@ -1,4 +1,30 @@
 <h1>all dem linkz</h1> <br>
-<% @links.each do |link| %>
-  <p><a href="<%= link.url %>"><%= link.title %></a> Posted by: <%= link_to "#{link.user.first_name} #{link.user.last_name}", user_path(link.user) %></p> <br>
-<% end %>
+<div class="link-wrap">
+
+  <% @links.each do |link| %>
+    <div class="vote-wrap">
+      <div class="thumbs-up">
+        <%= link_to '<i class="fa fa-thumbs-o-up"></i>'.html_safe, new_vote_path(vote: 'up', user_id: current_user, link_id: link) %>
+      </div>
+
+      <div class="score">
+        5
+      </div>
+
+      <div class="thumbs-down">
+        <i class="fa fa-thumbs-o-down"></i>
+      </div>
+    </div>
+
+    <div class="link">
+      <p><a href="<%= link.url %>"><%= link.title %></a> Posted by: <%= link_to "#{link.user.first_name} #{link.user.last_name}", user_path(link.user) %></p> <br>
+    </div>
+  <% end %>
+
+</div>
+
+
+
+<i class="fa fa-thumbs-up"></i>
+
+<i class="fa fa-thumbs-down"></i>
