@@ -6,6 +6,7 @@ RedtApp::Application.routes.draw do
   get '/login' => 'sessions#new'
   get '/logout' => 'sessions#destroy'
   post '/sessions' => 'sessions#create'
+  get '/change_vote/:id' => 'votes#change_vote'
 
   root to: 'links#index'
 
