@@ -1,32 +1,35 @@
-<%= form_for @user do |f| %>
+<%= form_for(@user) do |f| %>
+  <div class="field">
+    <% @user.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
+  </div>
 
   <div>
     <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, required: true %>
   </div>
 
   <div>
     <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, required: true %>
   </div>
 
   <div>
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, required: true %>
   </div>
 
   <div>
     <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, required: true %>
   </div>
 
   <div>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.label :password_confirmation, 'Confirm Password' %>
+    <%= f.password_field :password_confirmation, required: true %>
   </div>
-
-  <div>
+<div class="actions">
     <%= f.submit %>
-  </div>
-
+</div>
 <% end %>
